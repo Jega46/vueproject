@@ -1,20 +1,15 @@
 <template>
-<div>
-
-<app-stock></app-stock>
-</div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import StockTransfer from './components/StockTransfer.vue'
 
-
 export default {
-  components: {
-    
-     'app-stock' : StockTransfer
-  },
-}; 
+  name: 'App',
+};
 
 
 </script>
@@ -25,7 +20,8 @@ body {
   font-weight: 300;
   font-style: normal;
   font-size: 13px;
-  margin: 15px;
-  padding: 0;
+
+  padding: 0px;
+  background-color: rgb(243, 240, 240);
 }
 </style>
