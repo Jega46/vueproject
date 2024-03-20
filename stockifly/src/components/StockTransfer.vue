@@ -3,7 +3,7 @@
     <section class="sec1">
      <header >
         <span class="span1">
-          <div class="clock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15">
+          <div class="clock" @click="showPopup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15">
              <circle cx="12" cy="12" r="10" fill="none" stroke="blue" stroke-width="2" />
              <line x1="12" y1="12" x2="15" y2="12" stroke="blue" stroke-width="2" />
              <line x1="12" y1="12" x2="12" y2="9" stroke="blue" stroke-width="2" />
@@ -11,8 +11,24 @@
         </span>
         <span class="span1">POS</span>
         <span class="span1">Electronifly</span>
-        <span class="span1"><select class="language"><option value="en">En</option></select></span>
+        <span class="span1"><select class="language" v-model="selectedLanguage"><option value="English">En</option></select></span>
         <span class="span1"><i class="fa fa-user"></i></span>
+
+        <div v-if="showModal" class="popup-overlay">
+    <div class="popup">
+      <div class="popup-header">
+        <h5 class="popup-title">Clock In Information</h5>
+        <button @click="closePopup" class="close-btn">&times;</button>
+      </div>
+      <div class="popup-body">
+        <p>IP Address: {{ ipAddress }}</p>
+        <p>Current Time: {{ currentTime }}</p>
+      </div>
+      <div class="popup-footer">
+        <button @click="closePopup" class="btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
      </header>
     <hr>
     <p class="stock">Stock Transfer</p>
@@ -26,19 +42,20 @@
         <span class="span2">
             <div class="aaa">
             <span class="aab"> <input type="search" class="search-input" placeholder="search by Invoice Number"></span></div>
-             <div class="aaa"><select id="aaa"><option value="Select Warehouse">Select warehouse</option></select></div>
-             <div class="aaa"> <div class="date-input-wrapper">
-      <input id="dateRange" type="text" v-model="dateRange" @input="parseDateRange" placeholder="YYYY-MM-DD to YYYY-MM-DD">
-      <i class="fas fa-calendar-alt" @click="showDatePicker"></i>
-    </div>
-    <div v-if="startDate && endDate">
-      <p>Start Date: {{ startDate }}</p>
-      <p>End Date: {{ endDate }}</p>
-    </div>
-  
-    
-    
-  </div>
+             <div class="aaa"><select id="aaa" class="search-input"><option value="Select Warehouse">Select warehouse</option></select></div>
+             <div class="aaa">
+              <div class="date-input-wrapper">
+                 <input 
+                 id="dateRange" class="search-input" type="text" v-model="dateRange" @input="parseDateRange"
+                  placeholder="YYYY-MM-DD to YYYY-MM-DD" ref="datePickerInput">
+                  <i class="fas fa-calendar-alt" @click="showDatePicker"></i>
+                </div>
+              </div> 
+              <div v-if="startDate && endDate">
+                <p>Start Date: {{ startDate }}</p>
+                <p>End Date: {{ endDate }}</p>
+               </div>
+              
   </span>
 </section>
 <section class="sec2">   
@@ -49,68 +66,9 @@
     <div><hr></div>
     
     <div v-if="currentPart === 'transfered'">
-     
-     
-      <table>
-        <tr>
-            <th></th>
-            <th><input type="checkbox"></th>
-            <th>Invoice Number</th>
-            <th>Warehouse</th>
-            <th>Stock Transfer</th>
-            <th>Stock Transfer Status</th>
-            <th>Paid Amount</th>
-            <th>Total Amount</th>
-            <th>Payment Status</th>
-            <th>Action</th>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-        </tr>
-        <tr>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-        </tr>
-        
-    </table>
-    
-    </div>
-    
-    <div v-else-if="currentPart === 'received'">
-    
       <table>
         <thead>
-        <tr>
+          <tr>
             <th></th>
             <th><input type="checkbox"></th>
             <th>Invoice Number</th>
@@ -121,51 +79,60 @@
             <th>Total Amount</th>
             <th>Payment Status</th>
             <th>Action</th>
-
-        </tr>
-      </thead>
-      <tbody placeholder="No Data">
-        <tr>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-        </tr>
-        <tr>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-        </tr>  <tr>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-            <td placeholder="No data"></td>
-        </tr>
-      </tbody>
-  
-    </table>
-    
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Replace these placeholder rows with actual data -->
+          <tr v-for="item in transferedItems" :key="item.id">
+            <td></td>
+            <td></td>
+            <td>{{ item.invoiceNumber }}</td>
+            <td>{{ item.warehouse }}</td>
+            <td>{{ item.stockTransfer }}</td>
+            <td>{{ item.stockTransferStatus }}</td>
+            <td>{{ item.paidAmount }}</td>
+            <td>{{ item.totalAmount }}</td>
+            <td>{{ item.paymentStatus }}</td>
+            <td>{{ item.action }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+    <div v-else-if="currentPart === 'received'">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th><input type="checkbox"></th>
+            <th>Invoice Number</th>
+            <th>Warehouse</th>
+            <th>Stock Transfer</th>
+            <th>Stock Transfer Status</th>
+            <th>Paid Amount</th>
+            <th>Total Amount</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+     
+          <tr v-for="item in receivedItems" :key="item.id">
+            <td></td>
+            <td></td>
+            <td>{{ item.invoiceNumber }}</td>
+            <td>{{ item.warehouse }}</td>
+            <td>{{ item.stockTransfer }}</td>
+            <td>{{ item.stockTransferStatus }}</td>
+            <td>{{ item.paidAmount }}</td>
+            <td>{{ item.totalAmount }}</td>
+            <td>{{ item.paymentStatus }}</td>
+            <td>{{ item.action }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
 
 </section>
 </div>
@@ -174,6 +141,8 @@
 
 
 <script>
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 export default {
   name: 'stocktransfer',
   data() {
@@ -181,10 +150,24 @@ export default {
       dateRange: '',
       startDate: '',
       endDate: '',
-      currentPart: 'transfered'
+      currentPart: 'transfered',
+      selectedLanguage: 'English',
+      showModal:false,  currentPart: 'transfered', 
+      transferedItems: [],
+      receivedItems: []
     };
   },
   methods: {
+    showPopup() {
+    
+      this.ipAddress = '127.0.0.1';
+      this.currentTime = new Date().toLocaleTimeString(); 
+
+      this.showModal = true;
+    },
+    closePopup() {
+      this.showModal = false;
+    },
     parseDateRange() {
       const dates = this.dateRange.split(' to ');
       if (dates.length === 2) {
@@ -196,16 +179,13 @@ export default {
       }
     },
     showDatePicker() {
-      if (!this.flatpickrInstance) {
-        this.flatpickrInstance = flatpickr(this.$refs.dateRangeInput, {
-          mode: 'range',
-          dateFormat: 'Y-m-d',
-          onClose: (selectedDates) => {
-            this.dateRange = selectedDates.map(date => date.toISOString().slice(0, 10)).join(' to ');
-          }
-        });
-      }
-      this.flatpickrInstance.open();
+      flatpickr(this.$refs.datePickerInput, {
+        mode: 'range',
+        dateFormat: 'Y-m-d',
+        onClose: function (selectedDates, dateStr, instance) {
+          instance.setDate(selectedDates);
+        }
+      });
     },
     showTransfered() {
       this.currentPart = 'transfered';
@@ -221,8 +201,9 @@ export default {
 
 <style scoped>
 header{
-    display: flex;
-    justify-content: right;
+  display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 hr{
     border: 1px solid rgb(236, 230, 230);
@@ -239,16 +220,15 @@ table{
     width: 100%;
     border: 1px solid rgb(241, 234, 234);
     border-collapse: collapse;
-   
-
 }
 th{
+  
     background-color: rgb(224, 223, 223);
     color: rgb(37, 37, 37);
     font-weight: 200;
 }
 td{
-    background-color: hwb(0 97% 2%);
+    background-color:rgb(250, 248, 248);
     padding: 10px;
     color: rgb(252, 249, 249);
     
@@ -267,11 +247,11 @@ div .stock2{
 }
 .span2{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     clear: right;    
 
 }
-input{
+input.search-input{
     padding-right: 20px;
     height: 30px;
     border-style: solid;

@@ -26,21 +26,132 @@
 <section class="sec2">
     <div class="container">
     <div class="con1">
-        <label for="a1">Invoice Number</label><div class="con-input"><input id="a1" type="number" placeholder="Place Enter Voice Number"></div>
+        <label for="a1">Invoice Number</label><div class="con-input"><input class="input-cont" id="a1" type="number" placeholder="Place Enter Voice Number"></div>
     </div>
     </div>
     <div class="container">
 
     <div class="con2">
-        <label for="a2"><span>*</span> Warehouse</label><div class="con-input"> <select><option id="a2" value="Select WareHouse" required></option></select></div>
+        <label for="a2"><span>*</span> Warehouse</label><div class="con-input"> <select class="input-cont"><option id="a2" value="Select WareHouse" required></option></select><span><button class="input-cont"><i class="fa fa-plus"></i></button></span></div>
     </div>
     </div>
     <div class="container">
 
     <div class="con3">
-        <label for="a3"><span>*</span> Stock Transfer Date</label><div class="con-input"> <input id="a3" type="datetime" placeholder="Date Time" required></div>
+        <label for="a3"><span>*</span> Stock Transfer Date</label><div class="con-input"> <input  class="input-cont"id="a3" type="datetime" placeholder="Date Time" required></div>
     </div>
-    <div class="product"><label>Product</label><div><input type="search" placeholder="Search product Name/Item name/Scan Bar code"></div></div>
+    <div class="product"><label>Product</label><div><input class="product-input" type="search" placeholder="Search product Name/Item name/Scan Bar code"><span><button class="input-cont"><i class="fa fa-plus"></i></button></span></div></div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Discount</th>
+            <th>Tax</th>
+            <th>SubTotal</th>
+            <th>Action</th>
+ 
+
+        </tr>
+    </thead>
+  
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+
+        </tr>
+        <tr>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+            <td placeholder="No data"></td>
+
+        </tr>
+ 
+    <tfoot>
+        <tr>
+            <td colspan="5">Subtotal</td>
+            <td>0.00</td>
+            <td colspan="2">0.00</td>
+           
+        </tr>
+    </tfoot>  
+    </table>
+    <div>
+    <div class="terms-left">
+        <div class="terms-container">
+            <label>Terms & Conditions</label><div><textarea class="terms-container-text"></textarea></div>
+        </div>
+        <div class="terms-container">
+            <label>Notes</label><div><textarea class="terms-container-text"></textarea></div>
+        </div>
+    </div>
+    <div class="terms-right">
+        <div class="terms-right-part1">
+            <div class="terms-right-part1-label"><label>Order Status</label></div>
+            <div class="terms-right-part1-div">
+                <select class="terms-right-part1-select">
+                    <option>Ordered</option>
+                    <option>confirmed</option>
+                    <option>Processing</option>
+                    <option>Shipping</option>
+                    <option>Delivery</option>
+                </select> 
+            </div>
+            <div class="terms-right-part1-label"><label>Order Tax</label></div>
+            <div>
+                <select class="terms-right-part1-select">
+                    <option value="ppn(11%)">ppn(11%)</option>
+                    <option value="GST(18%)">GST(18%)</option>
+                    <option value="GST 18%">GST 18%</option>
+                </select>
+            </div>
+        </div>
+        <div class="terms-right-part2">
+            <div class="terms-right-part1-label"><label>Discount</label></div>
+            <div>
+                <input class="terms-right-part2-input" type="number" >
+            </div>
+            <div class="terms-right-part1-label"><label>Shipping</label></div>
+            <div>
+                <input class="terms-right-part2-input" type="number">
+            </div>
+        </div> 
+        <div class="terms-right-part3-container">
+            <div class="terms-right-part3-div">Order Tax<span class="terms-right-part3-span">Q.00</span></div>
+            <div class="terms-right-part3-div">Discount<span class="terms-right-part3-span">Q.00</span></div>
+            <div class="terms-right-part3-div">Shipping<span class="terms-right-part3-span">Q.00</span></div>
+            <div class="terms-right-part3-div">Grand Total<span class="terms-right-part3-span">Q.00</span></div>
+        </div> 
+       
+            <button class="terms-btn" type="submit">save</button>
+      
+       
+    </div>
 </div>
 </section>
 </div>
@@ -82,16 +193,19 @@ p.stock{
 .stock2{
     float:left;
 }
+.language{
+    color: rgb(115, 115, 248);
+    border: none;
+}
 .savebtn{
-    clear:left;
+    clear: right;
     background-color: rgb(9, 9, 250);
     color: white;
     border: unset;
-    margin-left: 70%;
+    margin-left: 60%;
     margin-top: 25px;
     padding: 10px;
     border-radius: 5px;
-    
 }
 
 .fas.fas.fa-arrow-left{
@@ -102,13 +216,41 @@ p.stock{
     margin-top: 25px;
  
 }
-input{
-    height: 30px;
-    width: 250px;
+section.sec2{
+    border-radius: 5px;
+    background-color: white;
+    padding: 2px;
+    margin: 16px;
 }
-select{
+input.input-cont{
+    height: 30px;
+    width: 370px;
+    border-style: solid;
+    border-color: rgb(224, 224, 224);
+    color: rgb(224, 224, 224);
+}
+select.input-cont{
     height: 35px;
-    width: 260px;
+    width: 370px;
+    border-style: solid;
+    border-color: rgb(224, 224, 224);
+    color: rgb(224, 224, 224);
+}
+button.input-cont{
+    height: 35px;
+    background-color:#f8f8f8;
+    border-style: solid;
+    border-color: lightgray;
+    padding: 8px;
+    margin-left: 5px;
+}
+.product-input{
+    width: 95%;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightgray;
 }
 .con1{
     float: left;
@@ -132,6 +274,74 @@ select{
 .product{
     margin-top: 20px;
 }
+table{
+    width: 100%;
+    border: 1px solid rgb(241, 234, 234);
+    border-collapse: collapse;
+}
+th{
+    background-color: rgb(224, 223, 223);
+    color: rgb(37, 37, 37);
+    font-weight: 200;
+}
+tfoot{
+    background-color:rgb(250, 248, 248);
+    text-align: center;
+    width:100%
+    
+}
+.terms-left{
+    margin: 10px;
+    float: left;
+    margin-bottom: 300px;
+    margin-right: 60%;
+}
+.terms-right{
+    margin: 10px;
+    clear: right;
+  
+}
+textarea.terms-container-text{
+    width: 300%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.terms-right-part1-label{
+    margin-top: 10px;
+}
+
+.terms-right-part2-input{
+    margin-top: 10px;
+    width: 292px;
+    height: 26px;
+}
+select.terms-right-part1-select{
+    width: 300px;
+    height: 35px;
+    margin-top: 10px;
+}
 
 
+
+div.terms-right-part3-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+.terms-right-part3-span{
+    margin-right: 75px;
+}
+button.terms-btn{
+    margin-top: 20px;
+    width: 300px;
+    padding: 8px;
+    background-color: rgb(9, 9, 250);
+    color: white;
+    border: unset;
+    font-size: 15px;
+    border-radius : 5px;
+}
 </style>
