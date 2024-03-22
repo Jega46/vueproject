@@ -38,7 +38,7 @@
     font-weight: 400;
     border-radius: 5px;
     border: 1px solid rgb(58, 57, 57);
-    float: left;
+    
   }
   
   ul {
