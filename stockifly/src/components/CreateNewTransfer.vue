@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="newtransfer-maincontent">
         <section class="sec1">
      <header >
         <span class="span1">
@@ -146,12 +146,8 @@
             <div class="terms-right-part3-div">Discount<span class="terms-right-part3-span">Q.00</span></div>
             <div class="terms-right-part3-div">Shipping<span class="terms-right-part3-span">Q.00</span></div>
             <div class="terms-right-part3-div">Grand Total<span class="terms-right-part3-span">Q.00</span></div>
-        </div> 
-       
-            <button class="terms-btn" type="submit">save</button>
-      
-       
-    </div>
+        </div>        
+            <button class="terms-btn" type="submit">save</button></div>
 </div>
 </section>
 </div>
@@ -166,6 +162,11 @@ export default {
 </script>
 
 <style>
+div.newtransfer-maincontent{
+  flex: 1;
+  padding-left: 260px;
+ 
+}
 .span1{
     margin: 10px;
     margin-left: 20px;
@@ -293,13 +294,13 @@ tfoot{
 .terms-left{
     margin: 10px;
     float: left;
-    margin-bottom: 300px;
-    margin-right: 60%;
+    margin-right: 500px;
+    margin-bottom: 250px;
 }
 .terms-right{
     margin: 10px;
     clear: right;
-  
+    margin-left: 0px
 }
 textarea.terms-container-text{
     width: 300%;

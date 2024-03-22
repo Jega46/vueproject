@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class="stocktransfer-maincontent">
+ 
     <section class="sec1">
      <header >
         <span class="span1">
@@ -200,6 +201,10 @@ export default {
 </script>
 
 <style scoped>
+div.stocktransfer-maincontent{
+  flex: 1;
+  padding-left: 260px;
+}
 header{
   display: flex;
     align-items: center;
@@ -222,7 +227,7 @@ table{
     border-collapse: collapse;
 }
 th{
-  
+  padding: 10px;
     background-color: rgb(224, 223, 223);
     color: rgb(37, 37, 37);
     font-weight: 200;
