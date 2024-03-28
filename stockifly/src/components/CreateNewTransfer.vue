@@ -26,7 +26,7 @@
 <section class="sec2">
     <div class="container">
     <div class="con1">
-        <label for="a1">Invoice Number</label><div class="con-input"><input class="input-cont" id="a1" type="number" placeholder="Place Enter Voice Number"></div>
+        <label for="a1">Invoice Number</label><div class="con-input"><input  class="input-cont" id="a1" type="number" placeholder="Place Enter Voice Number"></div>
     </div>
     </div>
     <div class="container">
@@ -38,7 +38,7 @@
     <div class="container">
 
     <div class="con3">
-        <label for="a3"><span>*</span> Stock Transfer Date</label><div class="con-input"> <input  class="input-cont"id="a3" type="datetime" placeholder="Date Time" required></div>
+        <label for="a3"><span>*</span> Stock Transfer Date</label><div class="con-input"> <input  class="input-cont" id="a3" type="datetime" placeholder="Date Time" required></div>
     </div>
     <div class="product"><label>Product</label><div><input class="product-input" type="search" placeholder="Search product Name/Item name/Scan Bar code"><span><button class="input-cont"><i class="fa fa-plus"></i></button></span></div></div>
 </div>
@@ -170,7 +170,7 @@ div.newtransfer-maincontent{
 .span1{
     margin: 10px;
     margin-left: 20px;
-    border-right: 1px inset rgb(48, 48, 49);
+    border-right: 1px solid rgb(227 227 233);
     color: rgb(115, 115, 248);
    padding-right:30px
 }
@@ -225,14 +225,14 @@ section.sec2{
 }
 input.input-cont{
     height: 30px;
-    width: 370px;
+    width: 300px;
     border-style: solid;
     border-color: rgb(224, 224, 224);
     color: rgb(224, 224, 224);
 }
 select.input-cont{
     height: 35px;
-    width: 370px;
+    width: 280px;
     border-style: solid;
     border-color: rgb(224, 224, 224);
     color: rgb(224, 224, 224);
@@ -306,6 +306,8 @@ textarea.terms-container-text{
     width: 300%;
     height: 50px;
     margin-top: 10px;
+    border-style: solid;
+    border-color: lightgray;
 }
 
 .terms-right-part1-label{
@@ -315,12 +317,17 @@ textarea.terms-container-text{
 .terms-right-part2-input{
     margin-top: 10px;
     width: 292px;
-    height: 26px;
+    height: 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
 }
 select.terms-right-part1-select{
     width: 300px;
     height: 35px;
     margin-top: 10px;
+    border-style: solid;
+    border-color: lightgray;
 }
 
 

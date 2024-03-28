@@ -52,10 +52,7 @@
                   <i class="fas fa-calendar-alt" @click="showDatePicker"></i>
                 </div>
               </div> 
-              <div v-if="startDate && endDate">
-                <p>Start Date: {{ startDate }}</p>
-                <p>End Date: {{ endDate }}</p>
-               </div>
+              
               
   </span>
 </section>
@@ -201,6 +198,7 @@ export default {
 </script>
 
 <style scoped>
+
 div.stocktransfer-maincontent{
   flex: 1;
   padding-left: 260px;
@@ -217,7 +215,7 @@ hr{
 .span1{
     margin: 10px;
     margin-left: 20px;
-    border-right: 1px inset rgb(48, 48, 49);
+    border-right: 1px solid rgb(227 227 233);
     color: rgb(115, 115, 248);
    padding-right:30px
 }
@@ -264,9 +262,7 @@ input.search-input{
     color:rgb(224, 224, 224) ;
 
 }
-input:hover{
-    border-color: rgb(192, 238, 253);
-}
+
 .aaa{
     margin-right: 30px;
 }
