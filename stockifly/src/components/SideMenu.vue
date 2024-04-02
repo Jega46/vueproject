@@ -33,8 +33,8 @@
     position: fixed;
     width: 250px;
     height: 630px;
-    background-color: #ffffff;
-    color: rgb(21 125 233 / 88%);
+    background-color: #fa3a3ac4;
+    color: rgb(255, 255, 255);
     font-weight: 400;
     border-radius: 5px;
     border: 1px solid rgb(58, 57, 57);
@@ -53,9 +53,10 @@
     margin-right: 10px;
     margin-left: 10px;
   }
-  
   li:hover {
-    background-color: #f1f1f1;
+    background-color: #f0a4a4;
+    border-radius: 5px;
   }
+  
   </style>
   
